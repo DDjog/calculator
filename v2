@@ -2,10 +2,10 @@ def calculator():
     try:
         num1 = float(input("Enter number1: "))
         num2 = float(input("Enter number2: "))
-        operator = input("Enter operator (+, -, /, *): ")
+        operator = input("Enter operator (+, -, /, *, **): ")
 
-        if operator not in ["+", "-", "/", "*"]:
-            raise ValueError("Invalid operator")
+        if operator not in ["+", "-", "/", "*", "**"]:
+            raise InvalidOperatorError("Invalid operator")
 
         if operator == "+":
             result = num1 + num2
@@ -17,6 +17,8 @@ def calculator():
             result = num1 / num2
         elif operator == "*":
             result = num1 * num2
+        elif operator == "**":
+            result = num1 ** num2
 
         return result
     except ValueError as e:
